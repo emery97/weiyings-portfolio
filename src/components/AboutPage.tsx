@@ -43,92 +43,86 @@ export function AboutPage() {
 
   const timelineItems = [
     {
-      year: "2023",
-      title: "Started IT Studies",
+      year: "Mar 2025 - Mar 2026",
+      title: "Software Development Intern",
+      company: "A*STAR (Agency for Science, Technology and Research)",
       description:
-        "Began my journey in Information Technology with a specialisation of software engineering and a minor on social media marketing.",
+        "Contributed to software development projects, collaborating with cross-functional teams to design, implement, and optimize software solutions for research initiatives.",
+      type: "experience",
+    },
+    {
+      year: "2023 - 2026",
+      title: "Diploma in Information Technology",
+      company: "Ngee Ann Polytechnic, School of Infocomm Technology",
+      description:
+        "Specialized in Software Engineering with a minor in Social Media Marketing. Gained comprehensive knowledge in IT systems, programming, and digital marketing strategies.",
       type: "education",
     },
     {
-      year: "2023 - 2024",
-      title: "AR Robotics and Automation Indoor Sales Associate",
+      year: "Dec 2023 - Feb 2024",
+      title: "Indoor Sales Associate",
+      company: "AR Robotics and Automation",
       description:
-        "Built my first website using HTML, CSS, and JavaScript. Discovered my passion for web development.",
-      type: "project",
+        "Composed persuasive email campaigns targeting companies, promoted robotic solutions, sourced and compiled contact information using Apollo.io and Hunter.io, and optimized outreach strategies to improve productivity and conversion.",
+      type: "experience",
     },
     {
-      year: "2023",
-      title: "Learning React",
+      year: "Nov 2020 - Nov 2023",
+      title: "Crew",
+      company: "McDonald’s, Singapore",
       description:
-        "Started learning React and modern frontend development. Built several small applications to practice.",
-      type: "skill",
-    },
-    {
-      year: "2024",
-      title: "Backend Development",
-      description:
-        "Expanded into backend development with Node.js and database management.",
-      type: "skill",
-    },
-    {
-      year: "2024",
-      title: "Portfolio Project",
-      description:
-        "Created this portfolio website to showcase my skills and projects.",
-      type: "project",
+        "Cross-trained across multiple store positions to ensure smooth operations. Delivered excellent customer service and effectively handled inquiries and complaints.",
+      type: "experience",
     },
   ];
 
   useEffect(() => {
     const handleScroll = () => {
-      if (timelineRef.current) {
-        const rect = timelineRef.current.getBoundingClientRect();
-        const containerHeight = rect.height;
-        const viewportHeight = window.innerHeight;
+      if (!timelineRef.current) return;
 
-        // Calculate scroll progress more smoothly
-        const scrollTop =
-          window.pageYOffset || document.documentElement.scrollTop;
-        const elementTop = rect.top + scrollTop;
-        const elementBottom = elementTop + containerHeight;
-        const viewportBottom = scrollTop + viewportHeight;
+      const rect = timelineRef.current.getBoundingClientRect();
+      const containerHeight = rect.height;
+      const viewportHeight = window.innerHeight;
 
-        // More refined progress calculation
-        const progress = Math.max(
+      const scrollTop =
+        window.pageYOffset || document.documentElement.scrollTop;
+      const elementTop = rect.top + scrollTop;
+      const viewportBottom = scrollTop + viewportHeight;
+
+      // Calculate scroll progress from 0 to 1
+      const progress = Math.min(
+        1,
+        Math.max(
           0,
-          Math.min(
-            1,
-            (viewportBottom - elementTop) / (containerHeight + viewportHeight)
-          )
-        );
+          (viewportBottom - elementTop) / (containerHeight + viewportHeight)
+        )
+      );
 
-        // Smooth interpolation between timeline items
-        const rawIndex = progress * (timelineItems.length - 1);
-        const newActiveItem = Math.min(
-          Math.floor(rawIndex + 0.3),
-          timelineItems.length - 1
-        );
+      // Map progress to timeline index
+      const newActiveIndex = Math.min(
+        Math.floor(progress * (timelineItems.length - 1) + 0.3),
+        timelineItems.length - 1
+      );
 
-        setActiveTimelineItem(newActiveItem);
-      }
+      setActiveTimelineItem(newActiveIndex);
     };
 
     window.addEventListener("scroll", handleScroll, { passive: true });
-    handleScroll(); // Initial call
+    handleScroll(); // Trigger initial calculation
+
     return () => window.removeEventListener("scroll", handleScroll);
   }, [timelineItems.length]);
 
+  // Assign colors based on timeline item type
   const getTimelineItemColor = (type: string) => {
-    switch (type) {
-      case "education":
-        return "bg-blue-500";
-      case "project":
-        return "bg-green-500";
-      case "skill":
-        return "bg-purple-500";
-      default:
-        return "bg-gray-500";
-    }
+    const colorMap: Record<string, string> = {
+      education: "bg-blue-500",
+      experience: "bg-green-500",
+      project: "bg-purple-500",
+      skill: "bg-purple-500",
+    };
+
+    return colorMap[type] || "bg-gray-500";
   };
 
   return (
@@ -314,14 +308,14 @@ export function AboutPage() {
                     }}
                   >
                     <Card
-                      className={`transition-all duration-500 ${
+                      className={`transition-all duration-500 rounded-xl overflow-hidden ${
                         index <= activeTimelineItem
                           ? "shadow-lg border-primary/20 bg-card"
                           : "shadow-sm border-border/50 bg-muted/30"
                       }`}
                     >
                       <CardContent className="p-6">
-                        <div className="flex items-center gap-2 mb-2">
+                        <div className="flex items-center gap-2 mb-3">
                           <Badge variant="outline" className="text-xs">
                             {item.year}
                           </Badge>
@@ -334,8 +328,13 @@ export function AboutPage() {
                             {item.type}
                           </Badge>
                         </div>
-                        <h3 className="text-lg mb-2">{item.title}</h3>
-                        <p className="text-muted-foreground text-sm">
+                        <h3 className="text-lg font-semibold text-gray-900 mb-1">
+                          {item.title}
+                        </h3>
+                        <div className="text-indigo-600 font-light text-sm mb-2">
+                          {item.company}
+                        </div>
+                        <p className="text-muted-foreground text-sm leading-relaxed">
                           {item.description}
                         </p>
                       </CardContent>
