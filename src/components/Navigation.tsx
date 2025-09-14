@@ -1,6 +1,5 @@
 import { Moon, Sun, Home, User, Briefcase, FileText } from "lucide-react";
 import { Button } from "./ui/button";
-import { ImageWithFallback } from "./figma/ImageWithFallback";
 
 interface NavigationProps {
   activeTab: string;
@@ -29,58 +28,62 @@ export function Navigation({
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border">
-      <div className="container mx-auto px-4 py-3">
-        <div className="flex items-center justify-between">
-          <div className="flex items-center space-x-6">
-            <div className="flex items-center space-x-3">
-              <h1 className="text-xl font-semibold">Wei Ying's Portfolio</h1>
-            </div>
-          </div>
+      <div className="container mx-auto px-4 py-3 flex items-center justify-between">
+        {/* Left: Brand */}
+        <h1 className="text-xl font-semibold">Wei Ying's Portfolio</h1>
 
-          <Button
-            variant="ghost"
-            size="icon"
-            onClick={toggleTheme}
-            className="ml-auto"
-          >
-            {isDark ? <Sun size={20} /> : <Moon size={20} />}
-          </Button>
-
-          <div className="hidden md:flex items-center space-x-1">
-            {tabs.map((tab) => {
-              const Icon = tab.icon;
-              return (
-                <Button
-                  key={tab.id}
-                  variant={activeTab === tab.id ? "default" : "ghost"}
-                  onClick={() => setActiveTab(tab.id)}
-                  className="flex items-center space-x-2 px-4 py-2"
-                >
-                  <Icon size={16} />
-                  <span>{tab.label}</span>
-                </Button>
-              );
-            })}
-          </div>
-        </div>
-
-        {/* Mobile navigation */}
-        <div className="md:hidden flex items-center justify-center space-x-1 mt-3">
+        {/* Center: Tabs */}
+        <div className="hidden md:flex items-center space-x-2">
           {tabs.map((tab) => {
             const Icon = tab.icon;
             return (
               <Button
                 key={tab.id}
                 variant={activeTab === tab.id ? "default" : "ghost"}
-                onClick={() => setActiveTab(tab.id)}
-                size="sm"
-                className="flex-1"
+                onClick={() => {
+                  if (tab.id === "resume") {
+                    window.open("/lee-wei-ying-resume.pdf", "_blank");
+                  } else {
+                    setActiveTab(tab.id);
+                  }
+                }}
+                className="flex items-center space-x-1 px-3 py-2"
               >
                 <Icon size={16} />
+                <span>{tab.label}</span>
               </Button>
             );
           })}
         </div>
+
+        {/* Right: Dark mode toggle */}
+        <Button variant="ghost" size="icon" onClick={toggleTheme}>
+          {isDark ? <Sun size={20} /> : <Moon size={20} />}
+        </Button>
+      </div>
+
+      {/* Mobile navigation */}
+      <div className="md:hidden flex justify-center space-x-1 mt-3">
+        {tabs.map((tab) => {
+          const Icon = tab.icon;
+          return (
+            <Button
+              key={tab.id}
+              variant={activeTab === tab.id ? "default" : "ghost"}
+              size="sm"
+              className="flex-1"
+              onClick={() => {
+                if (tab.id === "resume") {
+                  window.open("/lee-wei-ying-resume.pdf", "_blank");
+                } else {
+                  setActiveTab(tab.id);
+                }
+              }}
+            >
+              <Icon size={16} />
+            </Button>
+          );
+        })}
       </div>
     </nav>
   );
