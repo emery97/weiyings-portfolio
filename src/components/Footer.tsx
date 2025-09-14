@@ -66,7 +66,7 @@ export function Footer() {
           transition={{ duration: 0.5, delay: 0.6 }}
           className="text-muted-foreground text-sm text-center"
         >
-          Built with ❤️ using React & Tailwind
+          Built with ❤️ by wei ying
         </motion.p>
 
         {/* Last updated */}
