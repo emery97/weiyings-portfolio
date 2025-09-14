@@ -31,16 +31,6 @@ export function ProjectsPage() {
       image: chioset,
     },
     {
-      title: "Legit Anot",
-      description:
-        "Protects users from malicious links with real-time safety evaluations and feedback integration.",
-      technologies: ["React", "Bootstrap", "MongoDB"],
-      status: "Completed",
-      github: "https://github.com/enjiawu/youthxhack.git",
-      demo: "https://www.canva.com/design/DAGbD_UhG9I/JogaW6SvL2QPgORJbO9udw/edit?utm_content=DAGbD_UhG9I&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton",
-      image: legitAnot,
-    },
-    {
       title: "Ticket Finder | Android App",
       description:
         "Simplifies event discovery and booking with seat selection, ticket transfer, and automated reminders.",
@@ -49,6 +39,26 @@ export function ProjectsPage() {
       github: "https://github.com/emery97/MAD24_P02_Team3.git",
       demo: "https://www.canva.com/design/DAGbDpzpoIs/M85vZfoxhGgMjBTaL1PHqA/edit?utm_content=DAGbDpzpoIs&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton",
       image: ticketFinder,
+    },
+    {
+      title: "Sustainify",
+      description:
+        "Helps transport companies track and reduce carbon emissions with dashboards, reports, and actionable insights.",
+      technologies: ["HTML", "CSS", "JavaScript"],
+      status: "Completed",
+      github: "https://github.com/emery97/sustainify.git",
+      demo: null,
+      image: sustainify,
+    },
+    {
+      title: "Legit Anot",
+      description:
+        "Protects users from malicious links with real-time safety evaluations and feedback integration.",
+      technologies: ["React", "Bootstrap", "MongoDB"],
+      status: "Completed",
+      github: "https://github.com/enjiawu/youthxhack.git",
+      demo: "https://www.canva.com/design/DAGbD_UhG9I/JogaW6SvL2QPgORJbO9udw/edit?utm_content=DAGbD_UhG9I&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton",
+      image: legitAnot,
     },
     {
       title: "EduHelper",
@@ -61,16 +71,6 @@ export function ProjectsPage() {
       image: eduHelper,
     },
     {
-      title: "Amelia x Weiying",
-      description:
-        "Empowers teenage girls with stylish, affordable clothing through a user-friendly website.",
-      technologies: ["HTML", "CSS", "JavaScript"],
-      status: "Completed",
-      github: "https://github.com/emery97/FED-ameliaXweiying.git",
-      demo: "https://emery97.github.io/FED-ameliaXweiying/",
-      image: ameliaXweiying,
-    },
-    {
       title: "Ngee Ann City",
       description:
         "Demonstrates SCRUM methodology while delivering a functional website in a collaborative class project.",
@@ -81,14 +81,14 @@ export function ProjectsPage() {
       image: SPM,
     },
     {
-      title: "Sustainify",
+      title: "Amelia x Weiying",
       description:
-        "Helps transport companies track and reduce carbon emissions with dashboards, reports, and actionable insights.",
+        "Empowers teenage girls with stylish, affordable clothing through a user-friendly website.",
       technologies: ["HTML", "CSS", "JavaScript"],
       status: "Completed",
-      github: "https://github.com/emery97/sustainify.git",
-      demo: null,
-      image: sustainify,
+      github: "https://github.com/emery97/FED-ameliaXweiying.git",
+      demo: "https://emery97.github.io/FED-ameliaXweiying/",
+      image: ameliaXweiying,
     },
   ];
 

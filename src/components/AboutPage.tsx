@@ -92,10 +92,7 @@ export function AboutPage() {
       // Calculate scroll progress from 0 to 1
       const progress = Math.min(
         1,
-        Math.max(
-          0,
-          (viewportBottom - elementTop) / (containerHeight + viewportHeight)
-        )
+        Math.max(0, (scrollTop - elementTop + viewportHeight) / containerHeight)
       );
 
       // Map progress to timeline index
@@ -224,7 +221,10 @@ export function AboutPage() {
           className="mb-16"
         >
           <h2 className="text-3xl text-center mb-12">My Journey</h2>
-          <div ref={timelineRef} className="relative max-w-4xl mx-auto">
+          <div
+            ref={timelineRef}
+            className="relative max-w-4xl mx-auto pb-[100vh]"
+          >
             {/* Timeline line */}
             <div className="absolute left-4 md:left-1/2 top-0 bottom-0 w-0.5 bg-border transform md:-translate-x-1/2">
               <motion.div
