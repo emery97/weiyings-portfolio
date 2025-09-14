@@ -1,6 +1,6 @@
-import { Moon, Sun, Home, User, Briefcase, FileText } from 'lucide-react';
-import { Button } from './ui/button';
-import { ImageWithFallback } from './figma/ImageWithFallback';
+import { Moon, Sun, Home, User, Briefcase, FileText } from "lucide-react";
+import { Button } from "./ui/button";
+import { ImageWithFallback } from "./figma/ImageWithFallback";
 
 interface NavigationProps {
   activeTab: string;
@@ -9,17 +9,22 @@ interface NavigationProps {
   setIsDark: (dark: boolean) => void;
 }
 
-export function Navigation({ activeTab, setActiveTab, isDark, setIsDark }: NavigationProps) {
+export function Navigation({
+  activeTab,
+  setActiveTab,
+  isDark,
+  setIsDark,
+}: NavigationProps) {
   const tabs = [
-    { id: 'home', label: 'Home', icon: Home },
-    { id: 'about', label: 'About', icon: User },
-    { id: 'projects', label: 'Projects', icon: Briefcase },
-    { id: 'resume', label: 'Resume', icon: FileText },
+    { id: "home", label: "Home", icon: Home },
+    { id: "about", label: "About", icon: User },
+    { id: "projects", label: "Projects", icon: Briefcase },
+    { id: "resume", label: "Resume", icon: FileText },
   ];
 
   const toggleTheme = () => {
     setIsDark(!isDark);
-    document.documentElement.classList.toggle('dark');
+    document.documentElement.classList.toggle("dark");
   };
 
   return (
@@ -30,24 +35,8 @@ export function Navigation({ activeTab, setActiveTab, isDark, setIsDark }: Navig
             <div className="flex items-center space-x-3">
               <h1 className="text-xl font-semibold">Wei Ying's Portfolio</h1>
             </div>
-            <div className="hidden md:flex items-center space-x-1">
-              {tabs.map((tab) => {
-                const Icon = tab.icon;
-                return (
-                  <Button
-                    key={tab.id}
-                    variant={activeTab === tab.id ? "default" : "ghost"}
-                    onClick={() => setActiveTab(tab.id)}
-                    className="flex items-center space-x-2 px-4 py-2"
-                  >
-                    <Icon size={16} />
-                    <span>{tab.label}</span>
-                  </Button>
-                );
-              })}
-            </div>
           </div>
-          
+
           <Button
             variant="ghost"
             size="icon"
@@ -56,8 +45,25 @@ export function Navigation({ activeTab, setActiveTab, isDark, setIsDark }: Navig
           >
             {isDark ? <Sun size={20} /> : <Moon size={20} />}
           </Button>
+
+          <div className="hidden md:flex items-center space-x-1">
+            {tabs.map((tab) => {
+              const Icon = tab.icon;
+              return (
+                <Button
+                  key={tab.id}
+                  variant={activeTab === tab.id ? "default" : "ghost"}
+                  onClick={() => setActiveTab(tab.id)}
+                  className="flex items-center space-x-2 px-4 py-2"
+                >
+                  <Icon size={16} />
+                  <span>{tab.label}</span>
+                </Button>
+              );
+            })}
+          </div>
         </div>
-        
+
         {/* Mobile navigation */}
         <div className="md:hidden flex items-center justify-center space-x-1 mt-3">
           {tabs.map((tab) => {
