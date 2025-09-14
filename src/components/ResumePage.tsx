@@ -4,8 +4,6 @@ import { Button } from "./ui/button";
 import { AiOutlineDownload } from "react-icons/ai";
 import { Document, Page, pdfjs } from "react-pdf";
 
-import pdfFile from "../Assets/lee-wei-ying-resume.pdf"; // correct import
-
 // Set PDF.js worker
 pdfjs.GlobalWorkerOptions.workerSrc = `https://unpkg.com/pdfjs-dist@2.10.377/es5/build/pdf.worker.min.js`;
 
