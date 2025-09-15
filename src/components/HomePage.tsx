@@ -60,7 +60,7 @@ export function HomePage() {
             <div className="absolute inset-0 bg-gradient-to-r from-primary to-primary/70 rounded-full animate-pulse"></div>
             <div className="absolute inset-1 bg-background rounded-full">
               <ImageWithFallback
-                src="src/Assets/pfp.jpeg"
+                src="public/Assets/pfp.jpeg"
                 alt="Wei Ying"
                 className="w-full h-full object-cover rounded-full"
               />
