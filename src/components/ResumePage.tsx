@@ -5,22 +5,28 @@ import { AiOutlineDownload } from "react-icons/ai";
 import { Document, Page, pdfjs } from "react-pdf";
 
 // Set PDF.js worker
-pdfjs.GlobalWorkerOptions.workerSrc = `https://unpkg.com/pdfjs-dist@2.10.377/es5/build/pdf.worker.min.js`;
+pdfjs.GlobalWorkerOptions.workerSrc =
+  "https://unpkg.com/pdfjs-dist@2.10.377/es5/build/pdf.worker.min.js";
+
+// Use BASE_URL for GitHub Pages compatibility
+const pdfFile = import.meta.env.BASE_URL + "lee-wei-ying-resume.pdf";
 
 export function ResumePage() {
-  const [width, setWidth] = useState(1200);
+  const [width, setWidth] = useState(window.innerWidth);
   const [showPreview, setShowPreview] = useState(false);
 
+  // Update width dynamically on resize
   useEffect(() => {
-    setWidth(window.innerWidth);
+    const handleResize = () => setWidth(window.innerWidth);
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
   }, []);
 
   const handleDownloadResume = () => {
-    // pdfFile is now a valid URL thanks to Webpack
     const link = document.createElement("a");
     link.href = pdfFile;
     link.download = "Lee_Wei_Ying_Resume.pdf";
-    link.target = "_blank"; // ensures it works in all browsers
+    link.target = "_blank";
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
