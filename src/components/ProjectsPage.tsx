@@ -17,6 +17,7 @@ import legitAnot from "../Assets/Projects/legitAnot.png";
 import SPM from "../Assets/Projects/SPM.png";
 import sustainify from "../Assets/Projects/sustainify.png";
 import chioset from "../Assets/Projects/chioset.jpg";
+import instantInsurance from "../Assets/Projects/instantInsurance.png";
 
 export function ProjectsPage() {
   const projects = [
@@ -24,7 +25,7 @@ export function ProjectsPage() {
       title: "Chioset",
       description:
         "Helps users plan outfits efficiently with AR try-ons and weather-based suggestions.",
-      technologies: ["React", "Bootstrap", "TensorFlow", "MongoDB"],
+      technologies: ["React", "Node.js", "TensorFlow", "MongoDB"],
       status: "Completed",
       github: "https://github.com/emery97/HackAndRoll.git",
       demo: null,
@@ -44,17 +45,32 @@ export function ProjectsPage() {
       title: "Sustainify",
       description:
         "Helps transport companies track and reduce carbon emissions with dashboards, reports, and actionable insights.",
-      technologies: ["HTML", "CSS", "JavaScript"],
+      technologies: ["HTML", "CSS", "JavaScript", "MongoDB", "Node.js"],
       status: "Completed",
       github: "https://github.com/emery97/sustainify.git",
       demo: null,
       image: sustainify,
     },
     {
+      title: "Instant Insurance",
+      description:
+        "Delivers interactive insurance data visualizations, featuring custom Sankey charts and other charts for clear, actionable insights.",
+      technologies: [
+        "Angular",
+        "TypeScript",
+        "PostGreSQL",
+        "D3.js",
+        "HighChart.js",
+      ],
+      status: "Completed",
+      github: "https://github.com/emery97/instant-insurance-",
+      image: instantInsurance,
+    },
+    {
       title: "Legit Anot",
       description:
         "Protects users from malicious links with real-time safety evaluations and feedback integration.",
-      technologies: ["React", "Bootstrap", "MongoDB"],
+      technologies: ["React", "Bootstrap", "MongoDB", "Node.js"],
       status: "Completed",
       github: "https://github.com/enjiawu/youthxhack.git",
       demo: "https://www.canva.com/design/DAGbD_UhG9I/JogaW6SvL2QPgORJbO9udw/edit?utm_content=DAGbD_UhG9I&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton",
@@ -167,12 +183,11 @@ export function ProjectsPage() {
                       </Badge>
                     ))}
                   </div>
-
                   <div className="mt-auto flex gap-2">
                     <Button
                       variant="outline"
                       size="sm"
-                      className="flex-1"
+                      className="flex-1 cursor-pointer"
                       onClick={() => window.open(project.github, "_blank")}
                     >
                       <Github size={16} className="mr-2" />
@@ -181,7 +196,7 @@ export function ProjectsPage() {
                     {project.demo && (
                       <Button
                         size="sm"
-                        className="flex-1"
+                        className="flex-1 cursor-pointer"
                         onClick={() => window.open(project.demo, "_blank")}
                       >
                         <ExternalLink size={16} className="mr-2" />

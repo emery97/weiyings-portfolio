@@ -5,7 +5,7 @@ import { Card, CardContent } from "./ui/card";
 
 export function AboutPage() {
   const [activeTimelineItem, setActiveTimelineItem] = useState(0);
-  const timelineRef = useRef<HTMLDivElement>(null);
+  const timelineRef = useRef(null);
 
   const techStack = [
     "JavaScript",
@@ -45,9 +45,9 @@ export function AboutPage() {
     {
       year: "Mar 2025 - Mar 2026",
       title: "Software Development Intern",
-      company: "A*STAR (Agency for Science, Technology and Research)",
+      company: "A*STAR | Agency for Science, Technology and Research",
       description:
-        "Contributed to software development projects, collaborating with cross-functional teams to design, implement, and optimize software solutions for research initiatives.",
+        "Contributed to software development projects, collaborating with cross-functional teams to design, implement, and optimize software solutions for sustainability initiatives.",
       type: "experience",
     },
     {

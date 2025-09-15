@@ -1,3 +1,7 @@
+/* @tailwind base;
+@tailwind components;
+@tailwind utilities; */
+
 /*! tailwindcss v4.1.3 | MIT License | https://tailwindcss.com */
 @layer properties {
   @supports (((-webkit-hyphens: none)) and (not (margin-trim: inline))) or
@@ -5569,6 +5573,12 @@ html {
   50% {
     opacity: 0;
   }
+}
+/* --------- */
+/* Utility functions */
+/* --------- */
+.cursor-pointer {
+  cursor: pointer;
 }
 
 /* --------- */
