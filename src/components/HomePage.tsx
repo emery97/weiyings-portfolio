@@ -3,6 +3,9 @@ import { motion } from "motion/react";
 import { ChevronDown, Linkedin, Github } from "lucide-react";
 import { ImageWithFallback } from "./figma/ImageWithFallback";
 
+// Import the profile picture from src/Assets
+import pfp from "../Assets/pfp.jpeg"; // adjust the path if necessary
+
 export function HomePage() {
   const roles = [
     "an Information Technology Student",
@@ -60,7 +63,7 @@ export function HomePage() {
             <div className="absolute inset-0 bg-gradient-to-r from-primary to-primary/70 rounded-full animate-pulse"></div>
             <div className="absolute inset-1 bg-background rounded-full">
               <ImageWithFallback
-                src="public/Assets/pfp.jpeg"
+                src={pfp} // <-- use imported variable here
                 alt="Wei Ying"
                 className="w-full h-full object-cover rounded-full"
               />

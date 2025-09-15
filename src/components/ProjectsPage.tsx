@@ -10,14 +10,14 @@ import { Badge } from "./ui/badge";
 import { Button } from "./ui/button";
 import { ExternalLink, Github } from "lucide-react";
 
-import ameliaXweiying from "../../public/Assets/Projects/ameliaXweiying.png";
-import eduHelper from "../../public/Assets/Projects/eduHelper.png";
-import ticketFinder from "../../public/Assets/Projects/ticketFinder.png";
-import legitAnot from "../../public/Assets/Projects/legitAnot.png";
-import SPM from "../../public/Assets/Projects/SPM.png";
-import sustainify from "../../public/Assets/Projects/sustainify.png";
-import chioset from "../../public/Assets/Projects/chioset.jpg";
-import instantInsurance from "../../public/Assets/Projects/instantInsurance.png";
+import ameliaXweiying from "../Assets/Projects/ameliaXweiying.png";
+import eduHelper from "../Assets/Projects/eduHelper.png";
+import ticketFinder from "../Assets/Projects/ticketFinder.png";
+import legitAnot from "../Assets/Projects/legitAnot.png";
+import SPM from "../Assets/Projects/SPM.png";
+import sustainify from "../Assets/Projects/sustainify.png";
+import chioset from "../Assets/Projects/chioset.jpg";
+import instantInsurance from "../Assets/Projects/instantInsurance.png";
 
 export function ProjectsPage() {
   const projects = [
